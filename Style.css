@@ -1,0 +1,233 @@
+:root {
+    --Black: hsl(0, 0%, 0%);
+    --White: hsl(0, 0%, 100%);
+    --VeryDarkGray: hsl(0, 0%, 27%);
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--Black);
+    color: var(--White);
+    font-family: Roboto Slab;
+}
+
+.container {
+    width: 90%;
+    margin: 0;
+    padding: 40px 0;
+}
+
+.main_paragraph {
+    padding-top: 10px;
+}
+
+.main_subtitle {
+    text-align: left;
+}
+
+.main {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, max-content) repeat(1, 1fr);
+    grid-template-areas:
+        "main main"
+        "image1 main_me"
+        "about main_me"
+        "main_aboutme main_aboutme";
+}
+
+.main_hero {
+    min-height: 40px;
+    background-color: var(--Black);
+    background-size: cover;
+    background-position: center;
+    grid-area: main;
+    position: relative;
+}
+
+.main_nav::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background-color: var(--VeryDarkGray);
+}
+
+.main_nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main_link {
+    text-decoration: none;
+    padding-left: 20px;
+    text-align: right;
+    color: var(--White);
+    position: relative;
+}
+
+.main_list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.main_links {
+    display: flex;
+}
+
+.main_logo {
+    margin: 0 auto;
+}
+
+.main_link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 0;
+    height: 0.8px;
+    background: linear-gradient(to right, transparent, var(--White));
+    transition: width 0.3s ease;
+    bottom: 0;
+}
+
+.main_link:hover::after {
+    width: 100%;
+}
+
+.main_me {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;
+    grid-area: main_me;
+    border-bottom: 1px solid var(--VeryDarkGray);
+}
+
+.main_image {
+    flex-shrink: 0;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 20px;
+}
+
+.main_image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.main_aboutme {
+    grid-area: main_aboutme;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: max-content max-content;
+    gap: 20px;
+    text-align: center;
+    margin-left: 10px;
+}
+
+.main_lin {
+    text-decoration: none;
+    padding: 10px 30px;
+    position: relative;
+    border: 2px solid #ffffff;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    color: white;
+}
+
+i {
+    margin-right: 10px;
+}
+
+.main_lis {
+    list-style: none;
+    margin: 0;
+    padding: 8px;
+}
+
+.main_redes {
+    display: flex;
+}
+.main_lin:hover{
+   border: 2px solid var(--VeryDarkGray);
+   color: var(--VeryDarkGray);
+}
+.main_estuandrefe {
+    text-align: justify;
+}
+
+@media (max-width: 768px) {
+    .main {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "main"
+            "main_me"
+            "main_image"
+            "main_redes"
+            "about"
+            "main_aboutme";
+    }
+
+    .main_image {
+        margin: 0 auto;
+        margin-bottom: 20px;
+        grid-area: main_image;
+        width: 20%;
+        object-fit: cover;
+    }
+
+    .main_me {
+        display: block;
+        padding: 20px 0;
+        border-bottom: 1px solid var(--VeryDarkGray);
+        text-align: center;
+    }
+
+    .main_aboutme {
+        grid-template-columns: 1fr;
+        margin-left: 0;
+    }
+
+    .main_redes {
+        grid-area: main_redes;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .main_lin {
+        padding: 10px 20px;
+    }
+
+    .main_nav {
+        display: block;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .main_logo {
+        display: flex;
+    }
+
+    .main_link {
+        padding: 10px 20px;
+        text-align: center;
+    }
+}
